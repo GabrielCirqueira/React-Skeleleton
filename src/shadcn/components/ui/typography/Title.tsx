@@ -3,14 +3,17 @@ import { cn } from "@shadcn/lib/utils"
 
 export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'
-  size?: 'xl'|'lg'|'md'|'sm'
+  size?: '4xl'|'3xl'|'2xl'|'xl'|'lg'|'md'|'sm'
 }
 
 const SIZE_MAP: Record<NonNullable<TitleProps['size']>, string> = {
-  xl: 'text-4xl font-bold',
-  lg: 'text-3xl font-semibold',
-  md: 'text-2xl font-semibold',
-  sm: 'text-xl font-medium',
+  '4xl': 'text-4xl font-bold',
+  '3xl': 'text-3xl font-bold',
+  '2xl': 'text-2xl font-bold',
+  xl: 'text-xl font-semibold',
+  lg: 'text-lg font-semibold',
+  md: 'text-base font-medium',
+  sm: 'text-sm font-medium',
 }
 
 export const Title = React.forwardRef<HTMLElement, TitleProps>(({ as = 'h1', size = 'xl', className, ...props }, ref) => {
