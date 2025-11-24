@@ -38,6 +38,20 @@ help:
 	@echo "  make update           - Atualiza dependências"
 	@echo "  make audit            - Verifica vulnerabilidades"
 	@echo ""
+	@echo "$(YELLOW)🎨 CLI Tools (Criação):$(RESET)"
+	@echo "  make component NAME=<name> [PATH=path]  - Cria novo componente"
+	@echo "  make page NAME=<name> [ROUTE=route]     - Cria nova página"
+	@echo "  make hook NAME=<name>                   - Cria novo hook"
+	@echo ""
+	@echo "$(YELLOW)📊 CLI Tools (Análise):$(RESET)"
+	@echo "  make analyze-bundle   - Analisa tamanho do bundle"
+	@echo "  make check-deps       - Verifica dependências e vulnerabilidades"
+	@echo "  make check-deps-fix   - Corrige dependências automaticamente"
+	@echo "  make git-stats        - Estatísticas do repositório Git"
+	@echo "  make icons-ref        - Gera referência de ícones Lucide"
+	@echo "  make icons-search Q=<query>  - Busca ícones específicos"
+	@echo "  make health-check     - Verifica saúde geral do projeto"
+	@echo ""
 
 setup:
 	@echo "$(GREEN)🎉 Iniciando setup completo do React Skeleton...$(RESET)"
@@ -208,5 +222,57 @@ pre-commit: lint-fix format type-check
 
 quick-fix: lint-fix format
 	@echo "$(GREEN)✅ Correções rápidas aplicadas!$(RESET)"
+
+executable: chmod +x cli/*.sh
+
+component:
+ifndef NAME
+	@echo "$(RED)❌ Erro: NAME é obrigatório$(RESET)"
+	@echo "$(YELLOW)Uso: make component NAME=Button [PATH=src/components]$(RESET)"
+	@exit 1
+endif
+	@./cli/create-component.sh $(NAME) $(PATH)
+
+page:
+ifndef NAME
+	@echo "$(RED)❌ Erro: NAME é obrigatório$(RESET)"
+	@echo "$(YELLOW)Uso: make page NAME=Dashboard [ROUTE=/dashboard]$(RESET)"
+	@exit 1
+endif
+	@./cli/create-page.sh $(NAME) $(ROUTE)
+
+hook:
+ifndef NAME
+	@echo "$(RED)❌ Erro: NAME é obrigatório$(RESET)"
+	@echo "$(YELLOW)Uso: make hook NAME=useAuth$(RESET)"
+	@exit 1
+endif
+	@./cli/create-hook.sh $(NAME)
+
+analyze-bundle:
+	@./cli/analyze-bundle.sh
+
+check-deps:
+	@./cli/check-deps.sh
+
+check-deps-fix:
+	@./cli/check-deps.sh --fix
+
+git-stats:
+	@./cli/git-stats.sh
+
+icons-ref:
+	@./cli/generate-icons.sh
+
+icons-search:
+ifndef Q
+	@echo "$(RED)❌ Erro: Q (query) é obrigatório$(RESET)"
+	@echo "$(YELLOW)Uso: make icons-search Q=user$(RESET)"
+	@exit 1
+endif
+	@./cli/generate-icons.sh $(Q)
+
+health-check:
+	@./cli/health-check.sh
 
 .DEFAULT_GOAL := help

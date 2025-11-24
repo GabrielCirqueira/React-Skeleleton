@@ -13,9 +13,6 @@ dist
 dist-ssr
 *.local
 
-.husky/
-.husky
-
 .vscode/*
 !.vscode/extensions.json
 .idea
