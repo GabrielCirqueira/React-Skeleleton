@@ -4,6 +4,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
+      "@pages": ["src/pages"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts": ["src/layouts"],
+      "@layouts/*": ["src/layouts/*"],
       "@shadcn/*": [
         "src/shadcn/components/ui/*",
         "src/shadcn/*"

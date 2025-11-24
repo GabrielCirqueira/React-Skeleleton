@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
+      { find: '@layouts', replacement: path.resolve(__dirname, 'src', 'layouts') },
+      { find: '@pages', replacement: path.resolve(__dirname, 'src', 'pages') },
       { find: '@shadcn/lib', replacement: path.resolve(__dirname, 'src', 'shadcn', 'lib') },
       { find: '@shadcn/hooks', replacement: path.resolve(__dirname, 'src', 'shadcn', 'hooks') },
       { find: '@shadcn/components/ui', replacement: path.resolve(__dirname, 'src', 'shadcn', 'components', 'ui') },
