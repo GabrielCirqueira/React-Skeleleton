@@ -64,14 +64,14 @@ const paddingXClasses = {
 
 /**
  * AppContainer - Container padrão para conteúdo das páginas
- * 
+ *
  * Define configurações consistentes de largura, padding e alinhamento
  * para todas as páginas da aplicação.
- * 
+ *
  * @example
  * ```tsx
  * import { AppContainer } from "@layouts/AppContainer";
- * 
+ *
  * export default function MyPage() {
  *   return (
  *     <AppContainer>

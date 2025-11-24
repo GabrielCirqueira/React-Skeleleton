@@ -7,7 +7,6 @@ export interface MainLayoutProps {
   className?: string;
 }
 
-
 export const MainLayout = React.forwardRef<HTMLDivElement, MainLayoutProps>(
   ({ className }, ref) => {
     return (
@@ -21,11 +20,9 @@ export const MainLayout = React.forwardRef<HTMLDivElement, MainLayoutProps>(
           className
         )}
       >
-        
         <Box as="main" className="flex-1 flex flex-col">
           <Outlet />
         </Box>
-
       </Box>
     );
   }

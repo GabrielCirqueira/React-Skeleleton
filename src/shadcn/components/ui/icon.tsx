@@ -25,12 +25,12 @@ export interface IconProps extends React.SVGAttributes<SVGElement> {
 
 /**
  * Componente Icon - renderiza dinamicamente qualquer ícone do Lucide React
- * 
+ *
  * @example
  * ```tsx
  * import { Icon } from "@shadcn/icon";
  * import { Heart, Star, Bell } from "lucide-react";
- * 
+ *
  * <Icon icon={Heart} size={24} className="text-red-500" />
  * <Icon icon={Star} size={32} className="text-brand-500" strokeWidth={1.5} />
  * <Icon icon={Bell} className="text-info-600" />

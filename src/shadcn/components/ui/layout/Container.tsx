@@ -1,25 +1,25 @@
-import * as React from "react"
-import { cn } from "@shadcn/lib/utils"
+import * as React from "react";
+import { cn } from "@shadcn/lib/utils";
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
-const SIZE_MAP: Record<NonNullable<ContainerProps['size']>, string> = {
-  sm: 'max-w-screen-sm',
-  md: 'max-w-screen-md',
-  lg: 'max-w-screen-lg',
-  xl: 'max-w-screen-xl',
-  full: 'max-w-full',
-}
+const SIZE_MAP: Record<NonNullable<ContainerProps["size"]>, string> = {
+  sm: "max-w-screen-sm",
+  md: "max-w-screen-md",
+  lg: "max-w-screen-lg",
+  xl: "max-w-screen-xl",
+  full: "max-w-full",
+};
 
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, size = 'md', ...props }, ref) => {
+  ({ className, size = "md", ...props }, ref) => {
     return (
-      <div ref={ref} className={cn('mx-auto px-4 w-full', SIZE_MAP[size], className)} {...props} />
-    )
+      <div ref={ref} className={cn("mx-auto px-4 w-full", SIZE_MAP[size], className)} {...props} />
+    );
   }
-)
-Container.displayName = 'Container'
+);
+Container.displayName = "Container";
 
-export default Container
+export default Container;

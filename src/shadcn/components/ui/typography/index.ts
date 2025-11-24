@@ -1,13 +1,13 @@
-export { Title } from './Title'
-export { Text } from './Text'
-export { Subtitle } from './Subtitle'
-export { Lead } from './Lead'
-export { Small } from './Small'
-export { Caption } from './Caption'
+export { Title } from "./Title";
+export { Text } from "./Text";
+export { Subtitle } from "./Subtitle";
+export { Lead } from "./Lead";
+export { Small } from "./Small";
+export { Caption } from "./Caption";
 
-export type { TitleProps } from './Title'
-export type { TextProps } from './Text'
-export type { SubtitleProps } from './Subtitle'
-export type { LeadProps } from './Lead'
-export type { SmallProps } from './Small'
-export type { CaptionProps } from './Caption'
+export type { TitleProps } from "./Title";
+export type { TextProps } from "./Text";
+export type { SubtitleProps } from "./Subtitle";
+export type { LeadProps } from "./Lead";
+export type { SmallProps } from "./Small";
+export type { CaptionProps } from "./Caption";

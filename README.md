@@ -1,73 +1,130 @@
-# React + TypeScript + Vite
+# React Skeleton 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um skeleton moderno e completo para projetos React com TypeScript, configurado com as melhores práticas e ferramentas de desenvolvimento.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎨 Design System
 
-## React Compiler
+- **Paleta de cores completa** com brand, estados (success/warning/error/info), tipografia e backgrounds
+- **Componentes de layout**: Box, VStack, HStack, Container, Grid, Flex, Center, Spacer, Footer
+- **Componentes de tipografia**: Title (7 tamanhos), Text, Subtitle, Lead, Small, Caption
+- **Componente Icon** genérico para Lucide React
+- **Animações** com Tailwind CSS (animate-in, fade, slide, zoom)
+- **+50 componentes shadcn** pré-configurados
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🛠️ Ferramentas de Desenvolvimento
 
-## Expanding the ESLint configuration
+- ⚡ **Vite** - Build tool ultra-rápida
+- 🎯 **TypeScript** - Type safety
+- 🎨 **Tailwind CSS** - Utility-first CSS
+- 📏 **ESLint** - Linting com regras React + TypeScript + Accessibility
+- 💅 **Prettier** - Formatação automática de código
+- 🪝 **Husky** - Git hooks (pre-commit + commit-msg)
+- 🔍 **lint-staged** - Lint apenas em arquivos staged
+- 📝 **Commitlint** - Validação de mensagens de commit
+- 🛣️ **React Router** - Navegação com layouts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎯 Qualidade de Código Garantida
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ✅ **Format on save** - Código formatado automaticamente ao salvar
+- ✅ **Pre-commit hooks** - ESLint + Prettier rodando antes de cada commit
+- ✅ **Commit validation** - Mensagens de commit seguindo Conventional Commits
+- ✅ **Type checking** - TypeScript validado antes do build
+- ❌ **Commits bloqueados** se houver erros ESLint não corrigíveis
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 Instalação
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone o repositório
+git clone https://github.com/GabrielCirqueira/React-Skeleton.git
+cd React-Skeleton
+
+# Instale as dependências
+npm install
+# ou
+make install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Uso
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Desenvolvimento
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
+```bash
+# Inicia o servidor de desenvolvimento
+npm run dev
+# ou
+make dev
+```
+
+### Build
+
+```bash
+# Gera build de produção
+npm run build
+# ou
+make build
+```
+
+### Qualidade de Código
+
+```bash
+# Verifica erros ESLint
+make lint
+
+# Corrige erros automaticamente
+make lint-fix
+
+# Formata código com Prettier
+make format
+
+# Valida tudo (type + lint + format)
+make validate
+```
+
+## 📝 Convenções de Commit
+
+Este projeto usa **Conventional Commits**:
+
+```bash
+feat: adiciona componente de modal
+fix: corrige bug no formulário
+docs: atualiza README
+style: corrige indentação
+refactor: simplifica lógica
+```
+
+## 🛠️ Makefile - Comandos Úteis
+
+```bash
+make help          # Lista todos os comandos
+make dev           # Inicia desenvolvimento
+make validate      # Valida tudo
+make quick-fix     # Correção rápida
+make info          # Informações do projeto
+```
+
+## 📚 Documentação
+
+- [DEVELOPMENT.md](./DEVELOPMENT.md) - Guia completo de desenvolvimento
+
+---
+
+**Feito com ❤️ por Gabriel Cirqueira**
+reactX.configs['recommended-typescript'],
+// Enable lint rules for React DOM
+reactDom.configs.recommended,
+],
+languageOptions: {
+parserOptions: {
+project: ['./tsconfig.node.json', './tsconfig.app.json'],
+tsconfigRootDir: import.meta.dirname,
+},
+// other options...
+},
+},
 ])
+
+```
+
 ```
