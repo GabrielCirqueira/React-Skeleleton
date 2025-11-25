@@ -35,15 +35,12 @@ export function Component() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <AppContainer
-      paddingX="0"
-      className="min-h-screen dark:bg-zinc-950 transition-colors duration-500 w-full"
-    >
+    <AppContainer paddingX="0" className="min-h-screen transition-colors duration-500 w-full">
       <Container size="xl" className="py-4">
         <HStack className="justify-between items-center">
           <HStack className="gap-2 items-center">
             <Icon icon={Code2} className="size-8 text-brand-600 dark:text-brand-400" />
-            <Title size="xl" className="font-heading font-bold text-zinc-900 dark:text-white">
+            <Title size="xl" className="font-heading font-bold">
               React Skeleton
             </Title>
           </HStack>
@@ -51,13 +48,13 @@ export function Component() {
           <HStack className="gap-4 items-center">
             <Link
               href="#features"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+              className="text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
             >
               Features
             </Link>
             <Link
               href="#valores"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+              className="text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
             >
               Valores
             </Link>
@@ -65,11 +62,11 @@ export function Component() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300"
+              className="rounded-full transition-all duration-300"
             >
               <Icon icon={theme === "light" ? Moon : Sun} className="size-5" />
             </Button>
-            <Button className="rounded-full bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 transition-all duration-300 shadow-hard-2">
+            <Button className=" text-white rounded-full bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 transition-all duration-300 shadow-hard-2">
               Começar
             </Button>
           </HStack>
@@ -92,16 +89,13 @@ export function Component() {
             </Badge>
 
             <VStack className="gap-4">
-              <Title
-                size="4xl"
-                className="font-heading font-black text-zinc-900 dark:text-white leading-tight"
-              >
+              <Title size="4xl" className="font-heading font-black leading-tight">
                 Construa aplicações modernas{" "}
                 <Text as="span" className="text-brand-600 dark:text-brand-400">
                   mais rápido
                 </Text>
               </Title>
-              <Text className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <Text className="text-zinc-600 leading-relaxed">
                 Um template completo com React 19, TypeScript, Vite, Tailwind CSS e mais de 80
                 componentes shadcn/ui prontos para uso. Configure seu projeto em minutos.
               </Text>
@@ -142,7 +136,7 @@ export function Component() {
           </VStack>
 
           <Box className="relative animate-in fade-in slide-in-from-right duration-700 delay-200">
-            <Card className="p-8 bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 shadow-hard-3 hover:shadow-hard-4 transition-all duration-500 rounded-xl overflow-hidden">
+            <Card className="p-8 bg-zinc-50 dark:bg-brand-900 border-zinc-200 shadow-hard-3 hover:shadow-hard-4 transition-all duration-500 rounded-xl overflow-hidden">
               <VStack className="gap-4">
                 <HStack className="gap-2 items-center">
                   <Icon icon={Terminal} className="size-6 text-brand-600 dark:text-brand-400" />
@@ -199,10 +193,10 @@ export function Component() {
               <Badge
                 key={tech.name}
                 variant="outline"
-                className="justify-center py-4 px-6 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-2 transition-all duration-300 hover:scale-110"
+                className="justify-center py-4 px-6 rounded-2xl border-2 border-zinc-200 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-2 transition-all duration-300 hover:scale-110"
               >
                 <HStack className="gap-3 items-center">
-                  <Icon icon={tech.icon} className="size-5 text-zinc-600 dark:text-zinc-400" />
+                  <Icon icon={tech.icon} className="size-5 text-zinc-600" />
                   <Text className="font-semibold text-zinc-700 dark:text-zinc-300">
                     {tech.name}
                   </Text>
@@ -225,7 +219,7 @@ export function Component() {
             <Title size="3xl" className="font-heading font-black text-zinc-900 dark:text-white">
               Tudo que você precisa para começar
             </Title>
-            <Text size="lg" className="text-zinc-600 dark:text-zinc-400">
+            <Text size="lg" className="text-zinc-600">
               Um conjunto completo de ferramentas modernas para acelerar seu desenvolvimento
             </Text>
           </VStack>
@@ -295,9 +289,7 @@ export function Component() {
                     >
                       {feature.title}
                     </Title>
-                    <Text className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                      {feature.description}
-                    </Text>
+                    <Text className="text-zinc-600 leading-relaxed">{feature.description}</Text>
                   </VStack>
                 </VStack>
               </Card>
@@ -324,7 +316,7 @@ export function Component() {
                 <Title size="3xl" className="font-heading font-black text-zinc-900 dark:text-white">
                   {stat.value}
                 </Title>
-                <Text className="text-zinc-600 dark:text-zinc-400 font-semibold">{stat.label}</Text>
+                <Text className="text-zinc-600 font-semibold">{stat.label}</Text>
               </VStack>
             </Card>
           ))}
@@ -396,10 +388,10 @@ export function Component() {
       </Box>
 
       <Container size="xl" className="py-32">
-        <Card className="p-16 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 dark:from-brand-700 dark:to-brand-800 border-0 shadow-hard-5 overflow-hidden relative animate-in fade-in slide-in-from-bottom duration-700">
+        <Card className="p-16 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 dark:from-brand-800 dark:to-brand-900 border-0 shadow-hard-5 overflow-hidden relative animate-in fade-in slide-in-from-bottom duration-700">
           <VStack className="gap-8 items-center text-center relative z-10">
             <VStack className="gap-4 max-w-2xl items-center">
-              <Title size="4xl" className="font-heading font-black text-white">
+              <Title size="4xl" className="font-heading font-black text-gray-200 ">
                 Pronto para acelerar seu desenvolvimento?
               </Title>
               <Text className="text-brand-100 text-lg text-center">
@@ -432,7 +424,7 @@ export function Component() {
         </Card>
       </Container>
 
-      <Footer className="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors duration-500">
+      <Footer className="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 transition-colors duration-500">
         <Container size="xl" className="py-12">
           <Grid className="grid-cols-1 md:grid-cols-4 gap-12">
             <VStack className="gap-4">
@@ -442,7 +434,7 @@ export function Component() {
                   React Skeleton
                 </Title>
               </HStack>
-              <Text className="text-zinc-600 dark:text-zinc-400">
+              <Text className="text-zinc-600">
                 Template moderno para aplicações React com TypeScript, Vite e Tailwind CSS
               </Text>
             </VStack>
@@ -454,19 +446,19 @@ export function Component() {
               <VStack className="gap-2">
                 <Link
                   href="#features"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Features
                 </Link>
                 <Link
                   href="#valores"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Valores
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Documentação
                 </Link>
@@ -480,19 +472,19 @@ export function Component() {
               <VStack className="gap-2">
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   GitHub
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Changelog
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Comunidade
                 </Link>
@@ -506,19 +498,19 @@ export function Component() {
               <VStack className="gap-2">
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Privacidade
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Termos
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
+                  className="text-zinc-600 hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-300"
                 >
                   Licença
                 </Link>
@@ -526,7 +518,7 @@ export function Component() {
             </VStack>
           </Grid>
 
-          <Box className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+          <Box className="mt-12 pt-8 border-t border-zinc-200">
             <HStack className="justify-between items-center flex-wrap gap-4">
               <Text className="text-zinc-500 dark:text-zinc-500">
                 © 2025 React Skeleton. Todos os direitos reservados.
@@ -551,7 +543,7 @@ export function Component() {
       </Footer>
 
       <Dialog open={showModal} onOpenChange={setShowModal}>
-        <DialogContent className="max-w-2xl rounded-xl p-0 border-2 border-zinc-200 dark:border-zinc-800">
+        <DialogContent className="max-w-2xl rounded-xl p-0 border-2 border-zinc-200">
           <Box className="p-10">
             <VStack className="gap-6">
               <VStack className="gap-4 text-center">
@@ -561,12 +553,12 @@ export function Component() {
                 <Title size="2xl" className="font-heading font-bold text-zinc-900 dark:text-white">
                   Demonstração Interativa
                 </Title>
-                <Text size="lg" className="text-zinc-600 dark:text-zinc-400">
+                <Text size="lg" className="text-zinc-600">
                   Explore todos os componentes e funcionalidades deste template
                 </Text>
               </VStack>
 
-              <Card className="p-6 bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-2xl">
+              <Card className="p-6 bg-zinc-50 border-zinc-200 rounded-2xl">
                 <VStack className="gap-4">
                   <HStack className="gap-3 items-start">
                     <Icon
@@ -577,7 +569,7 @@ export function Component() {
                       <Text className="font-semibold text-zinc-900 dark:text-white">
                         80+ Componentes shadcn/ui
                       </Text>
-                      <Text className="text-sm text-zinc-600 dark:text-zinc-400">
+                      <Text className="text-sm text-zinc-600">
                         Todos acessíveis e customizáveis
                       </Text>
                     </VStack>
@@ -591,7 +583,7 @@ export function Component() {
                       <Text className="font-semibold text-zinc-900 dark:text-white">
                         Tema Dark/Light
                       </Text>
-                      <Text className="text-sm text-zinc-600 dark:text-zinc-400">
+                      <Text className="text-sm text-zinc-600">
                         Suporte completo com transições suaves
                       </Text>
                     </VStack>
@@ -605,7 +597,7 @@ export function Component() {
                       <Text className="font-semibold text-zinc-900 dark:text-white">
                         Animações Fluidas
                       </Text>
-                      <Text className="text-sm text-zinc-600 dark:text-zinc-400">
+                      <Text className="text-sm text-zinc-600">
                         Transições de 300-700ms otimizadas
                       </Text>
                     </VStack>

@@ -1,6 +1,6 @@
-import * as React from "react";
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@shadcn/lib/utils";
+import type { LucideIcon } from "lucide-react";
+import * as React from "react";
 
 export interface IconProps extends React.SVGAttributes<SVGElement> {
   /**
@@ -43,7 +43,7 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
         ref={ref}
         size={size}
         strokeWidth={strokeWidth}
-        className={cn("inline-block", className)}
+        className={cn("inline-block text-gray-700 dark:text-gray-300 ", className)}
         {...props}
       />
     );
