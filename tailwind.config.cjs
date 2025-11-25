@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Lato', 'Poppins', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'Lato', 'system-ui', 'sans-serif'],
+        body: ['Lato', 'Poppins', 'system-ui', 'sans-serif'],
       },
       fontWeight: {
         normal: '400',
@@ -37,31 +37,33 @@ module.exports = {
       },
       colors: {
         brand: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#1145e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50: '#e6f7f3',
+          100: '#c0ede3',
+          200: '#97e2d1',
+          300: '#6dd7be',
+          400: '#45cdae',
+          500: '#1cc39d',
+          600: '#11967c',
+          700: '#0d6d5b',
+          800: '#08493f',
+          900: '#042623',
+          950: '#021514',
         },
+
         primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50: '#e8faf7',
+          100: '#c4f0e7',
+          200: '#9ee6d6',
+          300: '#77dcc4',
+          400: '#4fd2b2',
+          500: '#27c9a1',
+          600: '#11967c',
+          700: '#0e705c',
+          800: '#094c3f',
+          900: '#042822',
+          950: '#021613',
         },
+
         secondary: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -167,7 +169,6 @@ module.exports = {
           950: '#030712',
         },
       },
-      // Sombras
       boxShadow: {
         'hard-1': '-2px 2px 8px 0px rgba(38, 38, 38, 0.20)',
         'hard-2': '0px 3px 10px 0px rgba(38, 38, 38, 0.20)',

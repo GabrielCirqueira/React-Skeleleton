@@ -87,7 +87,7 @@ export const AppContainer = React.forwardRef<HTMLDivElement, AppContainerProps>(
     {
       children,
       className,
-      maxWidth = "7xl",
+      maxWidth = "full",
       paddingY = "8",
       paddingX = "6",
       centered = true,

@@ -1,7 +1,10 @@
-import * as React from "react";
 import { cn } from "@shadcn/lib/utils";
+import * as React from "react";
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Optional size mapping. If omitted, no max-w-* is applied so
+  // you can control width entirely with Tailwind classes on the
+  // component usage.
   size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
@@ -14,10 +17,12 @@ const SIZE_MAP: Record<NonNullable<ContainerProps["size"]>, string> = {
 };
 
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, size = "md", ...props }, ref) => {
-    return (
-      <div ref={ref} className={cn("mx-auto px-4 w-full", SIZE_MAP[size], className)} {...props} />
-    );
+  ({ className, size, ...props }, ref) => {
+    // Apply the mapped max-width only when `size` is provided. This
+    // lets callers control width via Tailwind classes if they prefer.
+    const sizeClass = size ? SIZE_MAP[size] : "";
+
+    return <div ref={ref} className={cn("mx-auto px-4 w-full", sizeClass, className)} {...props} />;
   }
 );
 Container.displayName = "Container";
