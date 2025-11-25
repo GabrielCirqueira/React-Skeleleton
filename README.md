@@ -8,112 +8,385 @@ Ele já vem com várias conveniências e boas práticas configuradas para aceler
 
 ---
 
-## Visão geral
+[![2025-11-25-11-24-54.png](https://i.postimg.cc/W3SnGShp/2025-11-25-11-24-54.png)](https://postimg.cc/G88GrFF6)
 
-- Stack: React (18+/19), TypeScript, Vite, Tailwind CSS
-- Sistema de componentes locais (`src/shadcn`) seguindo primitives de layout e tipografia
-- Ferramentas de qualidade: ESLint (config flat), Prettier, Husky, lint-staged, commitlint
-- Conveniências devops/dev: Makefile com targets úteis, scripts CLI para gerar componentes/páginas/ganchos
-- Estrutura modular com exemplos de `pages`, `layouts` e componentes reutilizáveis
+---
+
+## 🚀 Visão geral
+
+- **Stack**: React (18+/19), TypeScript, Vite, Tailwind CSS
+- **Sistema de componentes locais** (`src/shadcn`) seguindo primitives de layout e tipografia
+- **Ferramentas de qualidade**: ESLint (config flat), Prettier, Husky, lint-staged, commitlint
+- **Conveniências devops/dev**: Makefile com targets úteis, scripts CLI para gerar componentes/páginas/ganchos
+- **Estrutura modular** com exemplos de `pages`, `layouts` e componentes reutilizáveis
+- **Sistema de tema** centralizado com ThemeProvider e cores padrão globais
+- **Scripts de automação** para criação de páginas, limpeza de componentes não utilizados e análise de bundle
 
 Este repositório foi projetado para ser copiado ou usado como base — você pode clonar e adaptar, ou transformar em um template de repositório (ex.: GitHub Template) para iniciar novos projetos a partir daqui.
 
-## O que está incluído
+---
 
-- `src/shadcn` — primitives e componentes de UI (Box, VStack, HStack, Button, Link, Icon, Title, Text, etc.)
-- `src/pages` — páginas de exemplo (Home, NotFound)
-- `Makefile` — comandos úteis (setup, validate, analyze-bundle, etc.)
-- `./cli` — scripts para gerar componentes/páginas/hooks, análise de bundle e outras utilidades
-- Configs: `tsconfig.*`, `vite.config.ts`, `tailwind.config.cjs`, `eslint.config.js`, `postcss.config.cjs`
-- Husky + lint-staged + commitlint para garantir commits limpos e padronizados
+## 📦 O que está incluído
 
-## Rápido começo (Quickstart)
+### Estrutura de arquivos
 
-1. Clone o repositório (ou use como template do GitHub):
+```
+├── cli/                          # Scripts de automação
+│   ├── create-page.sh           # Cria novas páginas com rotas
+│   ├── create-component.sh      # Cria componentes
+│   ├── create-hook.sh           # Cria hooks customizados
+│   ├── clean-shadcn.sh          # Remove componentes shadcn não utilizados
+│   ├── analyze-bundle.sh        # Análise de tamanho do bundle
+│   ├── check-deps.sh            # Verifica dependências desatualizadas
+│   ├── generate-icons.sh        # Gera tipos para ícones Lucide
+│   ├── git-stats.sh             # Estatísticas do repositório
+│   └── health-check.sh          # Verificações de saúde do projeto
+├── scripts/
+│   └── normalize-classnames.cjs  # Normaliza classes Tailwind
+├── src/
+│   ├── contexts/
+│   │   └── ThemeContext.tsx     # Provider de tema (light/dark)
+│   ├── layouts/
+│   │   ├── AppContainer.tsx     # Container principal da aplicação
+│   │   └── MainLayout.tsx       # Layout base com navegação
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   └── Home.tsx         # Página inicial
+│   │   ├── NotFound/
+│   │   │   └── NotFound.tsx     # Página 404
+│   │   └── index.ts             # Exports das páginas
+│   ├── shadcn/
+│   │   ├── components/ui/       # Componentes UI reutilizáveis
+│   │   └── lib/utils.ts         # Funções utilitárias
+│   ├── App.tsx                  # App principal com roteamento
+│   ├── index.css                # Estilos globais + cores padrão
+│   └── main.tsx                 # Ponto de entrada
+├── .vscode/
+│   └── settings.json            # Configurações do VS Code
+├── tailwind.config.cjs          # Configuração Tailwind
+├── tsconfig.json                # Configuração TypeScript
+├── eslint.config.js             # Configuração ESLint
+├── postcss.config.cjs           # Configuração PostCSS
+├── vite.config.ts               # Configuração Vite
+├── package.json                 # Dependências e scripts
+└── Makefile                     # Comandos de automação
+```
 
-   git clone https://github.com/GabrielCirqueira/React-Skeleleton my-app
-   cd my-app
+### Sistema de Tema
 
-2. Instale dependências:
+- **ThemeProvider** centralizado que gerencia tema light/dark
+- **Cores padrão globais** definidas no `@layer base` do CSS
+- **Persistência** do tema no localStorage
+- **Cores padrão**: texto `gray-700` (light) / `gray-300` (dark), fundo `white` / `gray-950`
 
-   npm install
+### Componentes Shadcn
 
-3. Inicie em modo desenvolvimento:
+- **60+ componentes** prontos para uso (Button, Card, Dialog, Form, etc.)
+- **Sistema de design consistente** com tokens Tailwind
+- **Script de limpeza** (`clean-shadcn.sh`) para remover componentes não utilizados
+- **Organização modular** em `src/shadcn/components/ui/`
 
-   npm run dev
+---
 
-4. Build de produção:
+## 🏃‍♂️ Rápido começo (Quickstart)
 
-   npm run build
+### 1. Clone o repositório
 
-5. Lint / format:
+```bash
+git clone https://github.com/GabrielCirqueira/React-Skeleleton my-app
+cd my-app
+```
 
-   npm run lint
-   npm run format
+### 2. Instale dependências
 
-6. Tests (se adicionados):
+```bash
+npm install
+```
 
-   npm run test
+### 3. Inicie em modo desenvolvimento
 
-## Como usar este repositório como template
+```bash
+npm run dev
+```
 
-Opções comuns para reutilizar este esqueleto:
+### 4. Build de produção
 
-- GitHub Template: a forma mais simples é marcar esse repo como _Template_ e então clicar em "Use this template" para criar um novo repo.
-- Copiar/Clonar e substituir o remote:
+```bash
+npm run build
+```
 
-  git clone https://github.com/GabrielCirqueira/React-Skeleleton my-project
-  cd my-project
-  rm -rf .git
-  git init
-  git add .
-  git commit -m "chore: init from react-skeleton"
+### 5. Lint / format
 
-- Ou usar scaffolding customizado (scripts que você quiser criar) para duplicar/personalizar automaticamente.
+```bash
+npm run lint
+npm run format
+```
 
-## Estrutura recomendada e convenções
+---
 
-- `src/shadcn` — manter primitives e componentes reutilizáveis. Evite expor detalhes de implementação; prefira props configuráveis.
-- `src/pages` — páginas por rota. Mantive um exemplo de `Home` e `NotFound`.
-- `src/layouts` — contêineres e layout global (MainLayout, AppContainer)
-- `./cli` — scripts shell para acelerar a criação de arquivos (component, page, hook, etc.) — sinta-se livre para adaptá-los ao seu fluxo.
+## 🛠️ Como usar o sistema
 
-## Scripts úteis (package.json)
+### Sistema de Tema
 
-- `npm run dev` — inicia o servidor Vite em dev
-- `npm run build` — build de produção
-- `npm run preview` — preview do build
-- `npm run lint` — executa ESLint
-- `npm run format` — formata com Prettier
-- `npm run validate` — validações combinadas (lint, typecheck)
+O tema é gerenciado automaticamente. Para alternar entre light/dark:
 
-Confira `package.json` para a lista completa de scripts e ajuste conforme necessário.
+```tsx
+import { useTheme } from "@/contexts";
 
-## Personalização (pontos importantes)
+function MyComponent() {
+  const { theme, toggleTheme } = useTheme();
 
-- Tailwind: configure tokens e paleta em `tailwind.config.cjs` e adicione utilitários conforme seu design system.
-- Tipografia & Componentes: `src/shadcn/components/ui/typography` contém componentes de tipografia (Title, Text, Code, Span etc.) — altere ou estenda conforme sua biblioteca de design.
-- Aliases TypeScript: `tsconfig.json` já tem aliases. Ajuste conforme a estrutura do seu projeto.
-- Commit hooks: os hooks estão configurados para ajudar a manter qualidade; adapte regras do commitlint conforme o padrão do seu time.
+  return <button onClick={toggleTheme}>Tema atual: {theme}</button>;
+}
+```
 
-## Como contribuir para o template
+**Cores padrão globais**: Todo texto herda automaticamente `gray-700` no light e `gray-300` no dark. Fundo padrão: `white` / `gray-950`.
 
-Se você quiser melhorar esse template (ex.: adicionar mais exemplos, melhorar scripts CLI, preparar templates de CI/CD), abra uma PR. Sugestões bem-vindas:
+Para cores específicas (brand, estados especiais), use classes `dark:`:
 
-- Melhorias na documentação
-- Mais componentes exemplares (Formulários, Tabelas, Modal patterns)
-- Exemplos de CI/CD (GitHub Actions, Azure Pipelines)
+```tsx
+<p className="text-brand-600 dark:text-brand-400">Texto brand</p>
+```
 
-## Licença
+### Criando Páginas
+
+Use o script CLI para criar páginas automaticamente:
+
+```bash
+# Página simples
+./cli/create-page.sh About
+
+# Página com rota específica
+./cli/create-page.sh UserProfile /profile
+
+# Modo interativo
+./cli/create-page.sh
+```
+
+O script:
+
+- Cria `src/pages/PageName/PageName.tsx` com template padrão
+- Adiciona export em `src/pages/index.ts`
+- Insere rota lazy em `src/App.tsx`
+
+### Criando Componentes
+
+```bash
+./cli/create-component.sh MyButton
+```
+
+Cria componente em `src/shadcn/components/ui/my-button.tsx` com template básico.
+
+### Criando Hooks
+
+```bash
+./cli/create-hook.sh useLocalStorage
+```
+
+Cria hook customizado em `src/hooks/use-local-storage.ts`.
+
+### Sistema de Formatação
+
+O projeto tem múltiplas camadas de formatação:
+
+#### 1. Prettier (automático)
+
+- Formatação automática ao salvar (VS Code)
+- Scripts: `npm run format`, `npm run format:check`
+- Configurado com `prettier-plugin-tailwindcss`
+
+#### 2. Normalização de Classes (opcional)
+
+- Remove espaços extras e duplicatas em `className`
+- Executado automaticamente ao salvar (`.vscode/settings.json`)
+- Script: `./scripts/normalize-classnames.cjs`
+- Pula strings com template literals (`${...}`)
+
+#### 3. ESLint + TypeScript
+
+- Regras opinativas para qualidade de código
+- Auto-fix ao salvar
+- Scripts: `npm run lint`, `npm run lint:fix`
+
+### Limpeza de Componentes Shadcn
+
+Ao final do desenvolvimento, remova componentes não utilizados:
+
+```bash
+# Verificar o que seria removido (dry-run)
+./cli/clean-shadcn.sh
+
+# Remover componentes não utilizados
+./cli/clean-shadcn.sh --yes
+
+# Proteger componentes específicos
+./cli/clean-shadcn.sh --keep button --keep card --yes
+```
+
+O script:
+
+- Detecta imports `@shadcn/component`
+- Move componentes não utilizados para `.shadcn-backup/`
+- Preserva backup para restauração
+
+### Análise de Bundle
+
+```bash
+./cli/analyze-bundle.sh
+```
+
+Analisa tamanho do bundle de produção e dependências.
+
+### Outros Scripts Úteis
+
+```bash
+./cli/check-deps.sh          # Verifica dependências desatualizadas
+./cli/generate-icons.sh      # Gera tipos para ícones Lucide
+./cli/git-stats.sh           # Estatísticas do repositório
+./cli/health-check.sh        # Verificações gerais de saúde
+```
+
+---
+
+## 📋 Scripts do package.json
+
+| Comando                | Descrição                        |
+| ---------------------- | -------------------------------- |
+| `npm run dev`          | Servidor de desenvolvimento Vite |
+| `npm run build`        | Build de produção                |
+| `npm run preview`      | Preview do build                 |
+| `npm run lint`         | Executa ESLint                   |
+| `npm run lint:fix`     | Executa ESLint com auto-fix      |
+| `npm run format`       | Formata com Prettier             |
+| `npm run format:check` | Verifica formatação              |
+| `npm run type-check`   | Verifica tipos TypeScript        |
+| `npm run validate`     | Validações combinadas            |
+
+---
+
+## 🎨 Personalização
+
+### Tailwind CSS
+
+- Configure tokens em `tailwind.config.cjs`
+- Cores padrão globais em `src/index.css` (`@layer base`)
+- Adicione utilitários conforme seu design system
+
+### Componentes
+
+- `src/shadcn/components/ui/` contém componentes reutilizáveis
+- Estenda ou modifique conforme seu design system
+- Use o script `clean-shadcn.sh` para manter apenas o necessário
+
+### Tipografia
+
+- Componentes em `src/shadcn/components/ui/typography/`
+- `Title`, `Text`, `Code`, `Span` etc.
+- Configure tamanhos e pesos em `tailwind.config.cjs`
+
+### Aliases TypeScript
+
+- `@/` → `src/`
+- `@layouts` → `src/layouts/`
+- `@pages` → `src/pages/`
+- `@shadcn` → `src/shadcn/`
+- `@contexts` → `src/contexts/`
+
+### Commit Hooks
+
+- Husky + lint-staged garantem qualidade
+- Commitlint padroniza mensagens
+- ESLint e Prettier rodam automaticamente
+
+---
+
+## 🏗️ Estrutura recomendada
+
+```
+src/
+├── components/          # Componentes específicos da aplicação
+├── contexts/           # Contextos React (Theme, Auth, etc.)
+├── hooks/              # Hooks customizados
+├── layouts/            # Layouts e containers
+├── pages/              # Páginas por rota
+├── shadcn/             # Sistema de design (componentes base)
+│   ├── components/ui/  # Componentes primitivos
+│   └── lib/            # Utilitários
+└── utils/              # Funções utilitárias
+```
+
+---
+
+## 🔧 Desenvolvimento
+
+### VS Code (recomendado)
+
+- Instale extensão "Run on Save"
+- Configurações já incluídas em `.vscode/settings.json`
+- Formatação automática ao salvar
+- Normalização de classes opcional
+
+### Estrutura de commits
+
+Seguimos Conventional Commits:
+
+```
+feat: add user authentication
+fix: resolve button hover state
+docs: update README
+refactor: simplify component logic
+```
+
+### CI/CD
+
+Pronto para integração com:
+
+- GitHub Actions
+- Azure Pipelines
+- Outros providers
+
+---
+
+## 🤝 Como contribuir
+
+### Melhorias sugeridas
+
+- Novos componentes exemplares
+- Templates de CI/CD
+- Mais hooks utilitários
+- Exemplos de testes
+- Documentação adicional
+
+### Processo
+
+1. Fork o repositório
+2. Crie uma branch: `git checkout -b feature/nova-feature`
+3. Commit suas mudanças: `git commit -m 'feat: add nova feature'`
+4. Push para a branch: `git push origin feature/nova-feature`
+5. Abra um Pull Request
+
+---
+
+## 📄 Licença
 
 Este projeto é distribuído sob a licença MIT — veja o arquivo `LICENSE` para os termos completos.
 
 ---
 
-Se quiser, posso:
+## ❓ FAQ
 
-- Gerar automaticamente um esqueleto de `package.json` personalizado com seu nome/author
-- Adicionar um modelo de GitHub Action para build e deploy
-- Extrair subcomponentes (Hero, FeatureCard) em `src/components`
+**P: Como adicionar novas cores ao tema?**
+R: Edite `tailwind.config.cjs` na seção `colors` e use no `@layer base` de `src/index.css`.
 
-Diga qual opção prefere que eu continue.
+**P: Os componentes shadcn são obrigatórios?**
+R: Não, você pode removê-los com `./cli/clean-shadcn.sh --yes` e usar outros sistemas.
+
+**P: Como desabilitar a normalização de classes?**
+R: Remova a configuração `emeraldwalk.runonsave` do `.vscode/settings.json`.
+
+**P: Como adicionar novas rotas?**
+R: Use `./cli/create-page.sh` ou edite manualmente `src/App.tsx` e `src/pages/index.ts`.
+
+---
+
+_Template mantido por Gabriel Cirqueira - PRs e sugestões bem-vindas!_ 🚀

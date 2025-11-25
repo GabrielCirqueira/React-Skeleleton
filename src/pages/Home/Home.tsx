@@ -95,7 +95,7 @@ export function Component() {
                   mais rápido
                 </Text>
               </Title>
-              <Text className="text-zinc-600 leading-relaxed">
+              <Text className="leading-relaxed">
                 Um template completo com React 19, TypeScript, Vite, Tailwind CSS e mais de 80
                 componentes shadcn/ui prontos para uso. Configure seu projeto em minutos.
               </Text>
@@ -128,7 +128,7 @@ export function Component() {
               <HStack className="gap-2 items-center">
                 <HStack className="gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Icon key={i} icon={Star} className="size-5 text-yellow-500 fill-yellow-500" />
+                    <Icon key={i} icon={Star} className="size-5" />
                   ))}
                 </HStack>
               </HStack>
@@ -145,7 +145,7 @@ export function Component() {
                   </Title>
                 </HStack>
                 <Box className="bg-zinc-900 dark:bg-black p-6 rounded-xl border w-full border-zinc-800 dark:border-zinc-700">
-                  <VStack className="gap-3 font-mono text-sm">
+                  <VStack className="gap-3 font-mono text-xs">
                     <Text className="text-zinc-400">
                       <Text as="span" className="text-green-400">
                         $
@@ -156,13 +156,7 @@ export function Component() {
                       <Text as="span" className="text-green-400">
                         $
                       </Text>{" "}
-                      npm install
-                    </Text>
-                    <Text className="text-zinc-400">
-                      <Text as="span" className="text-green-400">
-                        $
-                      </Text>{" "}
-                      npm run dev
+                      make setup
                     </Text>
                     <Text className="text-brand-400">✓ Ready in 2s</Text>
                   </VStack>
