@@ -1,31 +1,27 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/contexts";
 import { MainLayout } from "@layouts";
-import { Home, NotFound } from "@pages";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
-/**
- * App Component - Configuração de rotas do sistema
- *
- * Estrutura:
- * - MainLayout: wrapper global que envolve todas as páginas
- * - Rotas aninhadas dentro do layout
- *
- * Rotas disponíveis:
- * - / : Home (página inicial)
- * - * : NotFound (página 404)
- */
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/">
+      <Route element={<MainLayout />}>
+        <Route index lazy={() => import("@pages/Home/Home")} />
+        <Route path="*" lazy={() => import("@pages/NotFound/NotFound")} />
+      </Route>
+    </Route>
+  )
+);
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Layout principal envolve todas as rotas */}
-        <Route element={<MainLayout />}>
-          {/* Rota principal */}
-          <Route path="/" element={<Home />} />
-
-          {/* Rota 404 - captura todas as rotas não definidas */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }

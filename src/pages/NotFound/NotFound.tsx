@@ -6,7 +6,7 @@ import { Text, Title } from "@shadcn/typography";
 import { AlertCircle, ArrowLeft, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function NotFound() {
+export function Component() {
   return (
     <AppContainer maxWidth="2xl" paddingY="12">
       <VStack className="items-center text-center gap-8 animate-in fade-in-0 zoom-in-95 duration-700">

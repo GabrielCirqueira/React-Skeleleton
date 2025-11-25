@@ -30,7 +30,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export function Home() {
+export function Component() {
   const { theme, toggleTheme } = useTheme();
   const [showModal, setShowModal] = useState(false);
 
@@ -101,7 +101,7 @@ export function Home() {
                   mais rápido
                 </Text>
               </Title>
-              <Text size="xl" className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <Text className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Um template completo com React 19, TypeScript, Vite, Tailwind CSS e mais de 80
                 componentes shadcn/ui prontos para uso. Configure seu projeto em minutos.
               </Text>
@@ -137,13 +137,7 @@ export function Home() {
                     <Icon key={i} icon={Star} className="size-5 text-yellow-500 fill-yellow-500" />
                   ))}
                 </HStack>
-                <Text size="sm" className="text-zinc-600 dark:text-zinc-400 font-medium">
-                  5.0
-                </Text>
               </HStack>
-              <Text size="sm" className="text-zinc-500 dark:text-zinc-500">
-                +1.200 desenvolvedores confiam
-              </Text>
             </HStack>
           </VStack>
 
@@ -156,7 +150,7 @@ export function Home() {
                     Instalação rápida
                   </Title>
                 </HStack>
-                <Box className="bg-zinc-900 dark:bg-black p-6 rounded-xl border border-zinc-800 dark:border-zinc-700">
+                <Box className="bg-zinc-900 dark:bg-black p-6 rounded-xl border w-full border-zinc-800 dark:border-zinc-700">
                   <VStack className="gap-3 font-mono text-sm">
                     <Text className="text-zinc-400">
                       <Text as="span" className="text-green-400">
@@ -285,7 +279,7 @@ export function Home() {
             ].map((feature, idx) => (
               <Card
                 key={feature.title}
-                className="p-8 rounded-xl   hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-4 transition-all duration-500 hover:scale-105 bg-white dark:bg-zinc-900 animate-in fade-in slide-in-from-bottom"
+                className="p-8 rounded-xl hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-4 transition-all duration-500 hover:scale-105 bg-white dark:bg-zinc-900 animate-in fade-in slide-in-from-bottom"
                 style={{ animationDelay: `${idx * 100}ms`, animationDuration: "700ms" }}
               >
                 <VStack className="gap-4">
@@ -322,7 +316,7 @@ export function Home() {
           ].map((stat, idx) => (
             <Card
               key={stat.label}
-              className="p-8 rounded-xl text-center border-2 border-zinc-200 dark:border-zinc-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-3 transition-all duration-500 hover:scale-110 bg-white dark:bg-zinc-900 animate-in fade-in zoom-in"
+              className="p-8 rounded-xl text-center hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-hard-3 transition-all duration-500 hover:scale-110 bg-white dark:bg-zinc-900 animate-in fade-in zoom-in"
               style={{ animationDelay: `${idx * 100}ms`, animationDuration: "700ms" }}
             >
               <VStack className="gap-3 items-center">
@@ -535,7 +529,7 @@ export function Home() {
           <Box className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
             <HStack className="justify-between items-center flex-wrap gap-4">
               <Text className="text-zinc-500 dark:text-zinc-500">
-                © 2024 React Skeleton. Todos os direitos reservados.
+                © 2025 React Skeleton. Todos os direitos reservados.
               </Text>
               <HStack className="gap-4">
                 <Link

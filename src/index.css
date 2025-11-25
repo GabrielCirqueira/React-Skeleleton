@@ -1,13 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  * {
-    @apply border-outline-200;
-  }
-
-  body {
-    @apply bg-background-50 text-typography-800 antialiased;
-  }
-}
